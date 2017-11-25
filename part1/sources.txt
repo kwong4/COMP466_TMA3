@@ -1,0 +1,3 @@
+﻿https://stackoverflow.com/questions/3140341/how-to-create-persistent-cookies-in-asp-net
+https://stackoverflow.com/questions/735350/how-to-get-a-users-client-ip-address-in-asp-net
+https://www.sitepoint.com/community/t/convert-gettimezoneoffset-into-standard-gmt-statement/3789
