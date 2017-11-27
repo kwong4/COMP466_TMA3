@@ -1,0 +1,2 @@
+﻿https://www.tutorialspoint.com/linq/linq_sql.htm
+https://msdn.microsoft.com/en-us/library/system.timers.elapsedeventhandler(v=vs.110).aspx
