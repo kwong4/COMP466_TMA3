@@ -8,10 +8,6 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
-        .auto-style1 {
-            width: 248px;
-            height: 175px;
-        }
         div.hideSkiplink
         {
             background-color:#3a4f63;
@@ -64,6 +60,7 @@
             float: right;
             top: -55px;
             right: 2px;
+            cursor: pointer;
         }
         .title
         {
@@ -115,26 +112,29 @@
                 <br />
                 <br />
                 <br />
+                <br />
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                        [ <a href="~/Register.aspx" ID="Register_link" runat="server">Register</a> ]
+                        [ <a href="~/Login.aspx" ID="Login_link" runat="server">Log In</a> ]
                     </AnonymousTemplate>
                     <LoggedInTemplate>
-                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                        Welcome 
+                        <asp:LoginName ID="LoginName1" runat="server" />
+                        !&nbsp;&nbsp;
                     </LoggedInTemplate>
                 </asp:LoginView>
         </div>
         <div style="height: 58px; background-color: #465c71">
-            <asp:Menu ID="Menu1" runat="server" BorderColor="Black" CssClass="menu" OnMenuItemClick="Menu1_MenuItemClick" Orientation="Horizontal" StaticSubMenuIndent="16px" style="font-size: xx-large; display: inline-block;">
+            <asp:Menu ID="Menu1" runat="server" BorderColor="Black" CssClass="menu" Orientation="Horizontal" StaticSubMenuIndent="16px" style="font-size: xx-large; display: inline-block;">
                 <Items>
-                    <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
-                    <asp:MenuItem Text="Computers" Value="Computers"></asp:MenuItem>
-                    <asp:MenuItem Text="Feedback" Value="Feedback"></asp:MenuItem>
-                    <asp:MenuItem Text="Contact Us" Value="Contact Us"></asp:MenuItem>
+                    <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Computers" Value="Computers" NavigateUrl="~/Computer.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Feedback" Value="Feedback" NavigateUrl="~/Feedback.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Contact Us" Value="Contact Us" NavigateUrl="~/ContactUs.aspx"></asp:MenuItem>
                 </Items>
             </asp:Menu>
-            <img class="auto-style2" src="Cart_logo.png" />
+            <asp:Image onclick="window.location='Cart.aspx'" runat="server" class="auto-style2" src="Cart_logo.png" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
         <div style="background-color: #465c71">
