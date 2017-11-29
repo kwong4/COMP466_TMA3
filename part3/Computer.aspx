@@ -15,9 +15,6 @@
             width: 1070px;
             margin-left: 280px;
         }
-        .auto-style4 {
-            font-weight: 700;
-        }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -42,7 +39,7 @@
         &nbsp;&nbsp;<br />
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="View_Details_1" runat="server" Text="View Details" />
+        <asp:Button ID="View_Details_1" runat="server" Text="View Details" OnClick="View_Details_1_Click"/>
         <br />
         <br />
         <br />
@@ -50,7 +47,7 @@
     </div>
     <div>
         <hr />
-        <h2>Pre-Built #1</h2>
+        <h2>Pre-Built #1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 1109.94</h2>
         <div style ="float:left;">
             <img alt="" class="computer_image" src="http://localhost:62056/computer.png" />
         </div>
@@ -59,23 +56,23 @@
                 <li><strong>OS:</strong> Windows 10 Home (64 bit)</li>
                 <li><strong>CPU:</strong> Core i5-8600K Processor, 3.5GHz w/ 9MB Cache</li>
                 <li><strong>RAM:</strong> HyperX Fury Series 16GB PC4-19200 DDR4 Kit (2x 8GB), Black</li>
-                <li><strong>HARD DRIVE:</strong> 850 EVO Series Solid State Drive, 250GB</li>
-                <li><strong>DISPLAY:</strong> GC2870H 28in FHD Widescreen VA LED LCD</li>
-                <li><strong>SOUND CARD:</strong> Xonar DGX PCI-E 5.1 Gaming Audio Card w/ Headphone Amp</li>
+                <li><strong>Hard Drive:</strong> 850 EVO Series Solid State Drive, 250GB</li>
+                <li><strong>Display:</strong> GC2870H 28in FHD Widescreen VA LED LCD</li>
+                <li><strong>Sound Card:</strong> Xonar DGX PCI-E 5.1 Gaming Audio Card w/ Headphone Amp</li>
             </ul>
 
 
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="View_Details_2" runat="server" Text="View Details" />
+        <asp:Button ID="View_Details_2" runat="server" Text="View Details" OnClick="View_Details_2_Click"/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Add_to_Cart_2" runat="server" Text="Add to Cart" />
+        <asp:Button ID="Add_to_Cart_2" runat="server" Text="Add to Cart" OnClick="Add_to_Cart_2_Click" />
         <br />
         <br />
     </div>
     <div>
         <hr />
-        <h2>Pre-Built #2</h2>
+        <h2>Pre-Built #2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 1529.94</h2>
         <div style ="float:left;">
             <img alt="" class="computer_image" src="http://localhost:62056/computer.png" />
         </div>
@@ -84,23 +81,23 @@
                 <li><strong>OS:</strong> Windows 10 Pro (64 bit)</li>
                 <li><strong>CPU:</strong> Core i7-7700K Processor, 4.20GHz w/ 8MB Cache</li>
                 <li><strong>RAM:</strong> Vengeance LPX 16GB DDR4 2400MHz CL14 Dual Channel Kit (2 x 8GB), Black</li>
-                <li><strong>HARD DRIVE:</strong> 850 EVO Series Solid State Drive, 500GB</li>
-                <li><strong>DISPLAY:</strong> Optix G24C 23.6in FHD Widescreen Curved VA LED LCD w/ AMD FreeSync, 144Hz</li>
-                <li><strong>SOUND CARD:</strong> Sound Blaster Z PCI-E 5.1 Sound Card w/ Beamforming Microphone</li>
+                <li><strong>Hard Drive:</strong> 850 EVO Series Solid State Drive, 500GB</li>
+                <li><strong>Display:</strong> Optix G24C 23.6in FHD Widescreen Curved VA LED LCD w/ AMD FreeSync, 144Hz</li>
+                <li><strong>Sound Card:</strong> Sound Blaster Z PCI-E 5.1 Sound Card w/ Beamforming Microphone</li>
             </ul>
 
 
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="View_Details_3" runat="server" Text="View Details" />
+        <asp:Button ID="View_Details_3" runat="server" Text="View Details" OnClick="View_Details_3_Click"/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Add_to_Cart_3" runat="server" Text="Add to Cart" />
+        <asp:Button ID="Add_to_Cart_3" runat="server" Text="Add to Cart" OnClick="Add_to_Cart_3_Click" />
         <br />
         <br />
     </div>
     <div>
         <hr />
-        <h2>Pre-Built #3</h2>
+        <h2>Pre-Built #3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 849.94</h2>
         <div style ="float:left;">
             <img alt="" class="computer_image" src="http://localhost:62056/computer.png" />
         </div>
@@ -109,17 +106,17 @@
                 <li><strong>OS:</strong> Windows 7 Professional (64 bit)</li>
                 <li><strong>CPU:</strong> Core i5-7600K Processor, 3.80GHz w/ 6MB Cache</li>
                 <li><strong>RAM:</strong> Vengeance LPX 8GB DDR4 2400MHz CL14 DIMM (1 x 8GB), Black</li>
-                <li><strong>HARD DRIVE:</strong> 4TB BarraCuda HDD, SATA III w/ 256MB Cache</li>
-                <li><strong>DISPLAY:</strong> GW2270 21.5in Widescreen VA LED LCD</li>
-                <li><strong>SOUND CARD:</strong> USB Stereo Audio Adaptor</li>
+                <li><strong>Hard Drive:</strong> 4TB BarraCuda HDD, SATA III w/ 256MB Cache</li>
+                <li><strong>Display:</strong> GW2270 21.5in Widescreen VA LED LCD</li>
+                <li><strong>Sound Card:</strong> USB Stereo Audio Adaptor</li>
             </ul>
 
 
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="View_Details_4" runat="server" Text="View Details" />
+        <asp:Button ID="View_Details_4" runat="server" Text="View Details" OnClick="View_Details_4_Click"/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Add_to_Cart_4" runat="server" Text="Add to Cart" />
+        <asp:Button ID="Add_to_Cart_4" runat="server" Text="Add to Cart" OnClick="Add_to_Cart_4_Click" />
         <br />
         <br />
     </div>
