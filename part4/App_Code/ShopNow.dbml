@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ShopNow" Class="ShopNowDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\ShopNow.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ShopNowConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CPU" Member="CPUs">
+    <Type Name="CPU">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="CPU_Order" Member="Orders" ThisKey="ID" OtherKey="CPU_ID" Type="Order" />
+      <Association Name="CPU_PreMade" Member="PreMades" ThisKey="ID" OtherKey="CPU_ID" Type="PreMade" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Feedback" Member="Feedbacks">
+    <Type Name="Feedback">
+      <Column Name="User_Feedback" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HardDrive" Member="HardDrives">
+    <Type Name="HardDrive">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="HardDrive_Order" Member="Orders" ThisKey="ID" OtherKey="HardDrive_ID" Type="Order" />
+      <Association Name="HardDrive_PreMade" Member="PreMades" ThisKey="ID" OtherKey="HardDrive_ID" Type="PreMade" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Monitor" Member="Monitors">
+    <Type Name="Monitor">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Monitor_Order" Member="Orders" ThisKey="ID" OtherKey="Monitor_ID" Type="Order" />
+      <Association Name="Monitor_PreMade" Member="PreMades" ThisKey="ID" OtherKey="Monitor_ID" Type="PreMade" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orders" Member="Orders">
+    <Type Name="Order">
+      <Column Name="OS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CPU_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RAM_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HardDrive_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Monitor_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SoundCard_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="CPU_Order" Member="CPU" ThisKey="CPU_ID" OtherKey="ID" Type="CPU" IsForeignKey="true" />
+      <Association Name="HardDrive_Order" Member="HardDrive" ThisKey="HardDrive_ID" OtherKey="ID" Type="HardDrive" IsForeignKey="true" />
+      <Association Name="Monitor_Order" Member="Monitor" ThisKey="Monitor_ID" OtherKey="ID" Type="Monitor" IsForeignKey="true" />
+      <Association Name="O_Order" Member="O" ThisKey="OS_ID" OtherKey="ID" Type="O" IsForeignKey="true" />
+      <Association Name="RAM_Order" Member="RAM" ThisKey="RAM_ID" OtherKey="ID" Type="RAM" IsForeignKey="true" />
+      <Association Name="SoundCard_Order" Member="SoundCard" ThisKey="SoundCard_ID" OtherKey="ID" Type="SoundCard" IsForeignKey="true" />
+      <Association Name="user_Order" Member="user" ThisKey="Username" OtherKey="Username" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OS" Member="Os">
+    <Type Name="O">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="O_Order" Member="Orders" ThisKey="ID" OtherKey="OS_ID" Type="Order" />
+      <Association Name="O_PreMade" Member="PreMades" ThisKey="ID" OtherKey="OS_ID" Type="PreMade" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PreMade" Member="PreMades">
+    <Type Name="PreMade">
+      <Column Name="Premade_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CPU_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RAM_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HardDrive_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Monitor_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SoundCard_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="CPU_PreMade" Member="CPU" ThisKey="CPU_ID" OtherKey="ID" Type="CPU" IsForeignKey="true" />
+      <Association Name="HardDrive_PreMade" Member="HardDrive" ThisKey="HardDrive_ID" OtherKey="ID" Type="HardDrive" IsForeignKey="true" />
+      <Association Name="Monitor_PreMade" Member="Monitor" ThisKey="Monitor_ID" OtherKey="ID" Type="Monitor" IsForeignKey="true" />
+      <Association Name="O_PreMade" Member="O" ThisKey="OS_ID" OtherKey="ID" Type="O" IsForeignKey="true" />
+      <Association Name="RAM_PreMade" Member="RAM" ThisKey="RAM_ID" OtherKey="ID" Type="RAM" IsForeignKey="true" />
+      <Association Name="SoundCard_PreMade" Member="SoundCard" ThisKey="SoundCard_ID" OtherKey="ID" Type="SoundCard" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.privatesecurity" Member="privatesecurities">
+    <Type Name="privatesecurity">
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityQuestion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityAnswer" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="user_privatesecurity" Member="user" ThisKey="Email" OtherKey="Email" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RAM" Member="RAMs">
+    <Type Name="RAM">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="RAM_Order" Member="Orders" ThisKey="ID" OtherKey="RAM_ID" Type="Order" />
+      <Association Name="RAM_PreMade" Member="PreMades" ThisKey="ID" OtherKey="RAM_ID" Type="PreMade" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SoundCard" Member="SoundCards">
+    <Type Name="SoundCard">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="SoundCard_Order" Member="Orders" ThisKey="ID" OtherKey="SoundCard_ID" Type="Order" />
+      <Association Name="SoundCard_PreMade" Member="PreMades" ThisKey="ID" OtherKey="SoundCard_ID" Type="PreMade" />
+    </Type>
+  </Table>
+  <Table Name="dbo.users" Member="users">
+    <Type Name="user">
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="user_Order" Member="Orders" ThisKey="Username" OtherKey="Username" Type="Order" />
+      <Association Name="user_privatesecurity" Member="privatesecurities" ThisKey="Email" OtherKey="Email" Type="privatesecurity" />
+    </Type>
+  </Table>
+</Database>

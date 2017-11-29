@@ -47,18 +47,34 @@
     </div>
     <div>
         <hr />
-        <h2>Pre-Built #1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 1109.94</h2>
+        <h2>
+            <asp:Label ID="PreMade1_Label" runat="server"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $
+            <asp:Label ID="PreMadeCost1_Label" runat="server"></asp:Label>
+        </h2>
         <div style ="float:left;">
             <img alt="" class="computer_image" src="computer.png" />
         </div>
         <div class="auto-style3">
             <ul>
-                <li><strong>OS:</strong> Windows 10 Home (64 bit)</li>
-                <li><strong>CPU:</strong> Core i5-8600K Processor, 3.5GHz w/ 9MB Cache</li>
-                <li><strong>RAM:</strong> HyperX Fury Series 16GB PC4-19200 DDR4 Kit (2x 8GB), Black</li>
-                <li><strong>Hard Drive:</strong> 850 EVO Series Solid State Drive, 250GB</li>
-                <li><strong>Display:</strong> GC2870H 28in FHD Widescreen VA LED LCD</li>
-                <li><strong>Sound Card:</strong> Xonar DGX PCI-E 5.1 Gaming Audio Card w/ Headphone Amp</li>
+                <li><strong>OS:</strong>
+                    <asp:Label ID="OS_Label1" runat="server"></asp:Label>
+                </li>
+                <li><strong>CPU:</strong>
+                    <asp:Label ID="CPU_Label1" runat="server"></asp:Label>
+                </li>
+                <li><strong>RAM:</strong>
+                    <asp:Label ID="RAM_Label1" runat="server"></asp:Label>
+                </li>
+                <li><strong>Hard Drive:</strong>
+                    <asp:Label ID="HD_Label1" runat="server"></asp:Label>
+                </li>
+                <li><strong>Display:</strong>
+                    <asp:Label ID="Display_Label1" runat="server"></asp:Label>
+                </li>
+                <li><strong>Sound Card:</strong>
+                    <asp:Label ID="SC_Label1" runat="server"></asp:Label>
+                </li>
             </ul>
 
 
@@ -72,18 +88,34 @@
     </div>
     <div>
         <hr />
-        <h2>Pre-Built #2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 1529.94</h2>
+        <h2>
+            <asp:Label ID="PreMade2_Label" runat="server"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $
+            <asp:Label ID="PreMadeCost2_Label" runat="server"></asp:Label>
+        </h2>
         <div style ="float:left;">
             <img alt="" class="computer_image" src="computer.png" />
         </div>
         <div class="auto-style3">
             <ul>
-                <li><strong>OS:</strong> Windows 10 Pro (64 bit)</li>
-                <li><strong>CPU:</strong> Core i7-7700K Processor, 4.20GHz w/ 8MB Cache</li>
-                <li><strong>RAM:</strong> Vengeance LPX 16GB DDR4 2400MHz CL14 Dual Channel Kit (2 x 8GB), Black</li>
-                <li><strong>Hard Drive:</strong> 850 EVO Series Solid State Drive, 500GB</li>
-                <li><strong>Display:</strong> Optix G24C 23.6in FHD Widescreen Curved VA LED LCD w/ AMD FreeSync, 144Hz</li>
-                <li><strong>Sound Card:</strong> Sound Blaster Z PCI-E 5.1 Sound Card w/ Beamforming Microphone</li>
+                <li><strong>OS:</strong>
+                    <asp:Label ID="OS_Label2" runat="server"></asp:Label>
+                </li>
+                <li><strong>CPU:</strong>
+                    <asp:Label ID="CPU_Label2" runat="server"></asp:Label>
+                </li>
+                <li><strong>RAM:</strong>
+                    <asp:Label ID="RAM_Label2" runat="server"></asp:Label>
+                </li>
+                <li><strong>Hard Drive:</strong>
+                    <asp:Label ID="HD_Label2" runat="server"></asp:Label>
+                </li>
+                <li><strong>Display:</strong>
+                    <asp:Label ID="Display_Label2" runat="server"></asp:Label>
+                </li>
+                <li><strong>Sound Card:</strong>
+                    <asp:Label ID="SC_Label2" runat="server"></asp:Label>
+                </li>
             </ul>
 
 
@@ -97,18 +129,34 @@
     </div>
     <div>
         <hr />
-        <h2>Pre-Built #3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 849.94</h2>
+        <h2>
+            <asp:Label ID="PreMade3_Label" runat="server"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $
+            <asp:Label ID="PreMadeCost3_Label" runat="server"></asp:Label>
+        </h2>
         <div style ="float:left;">
             <img alt="" class="computer_image" src="computer.png" />
         </div>
         <div class="auto-style3">
             <ul>
-                <li><strong>OS:</strong> Windows 7 Professional (64 bit)</li>
-                <li><strong>CPU:</strong> Core i5-7600K Processor, 3.80GHz w/ 6MB Cache</li>
-                <li><strong>RAM:</strong> Vengeance LPX 8GB DDR4 2400MHz CL14 DIMM (1 x 8GB), Black</li>
-                <li><strong>Hard Drive:</strong> 4TB BarraCuda HDD, SATA III w/ 256MB Cache</li>
-                <li><strong>Display:</strong> GW2270 21.5in Widescreen VA LED LCD</li>
-                <li><strong>Sound Card:</strong> USB Stereo Audio Adaptor</li>
+                <li><strong>OS:</strong>
+                    <asp:Label ID="OS_Label3" runat="server"></asp:Label>
+                </li>
+                <li><strong>CPU:</strong>
+                    <asp:Label ID="CPU_Label3" runat="server"></asp:Label>
+                </li>
+                <li><strong>RAM:</strong>
+                    <asp:Label ID="RAM_Label3" runat="server"></asp:Label>
+                </li>
+                <li><strong>Hard Drive:</strong>
+                    <asp:Label ID="HD_Label3" runat="server"></asp:Label>
+                </li>
+                <li><strong>Display:</strong>
+                    <asp:Label ID="Display_Label3" runat="server"></asp:Label>
+                </li>
+                <li><strong>Sound Card:</strong>
+                    <asp:Label ID="SC_Label3" runat="server"></asp:Label>
+                </li>
             </ul>
 
 

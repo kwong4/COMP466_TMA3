@@ -136,7 +136,8 @@ CREATE TABLE Orders
 
 CREATE TABLE Feedback
 (
-	User_Feedback VARCHAR(300)
+	User_Feedback VARCHAR(300),
+	CONSTRAINT [PK_Feedback] PRIMARY KEY ([User_Feedback])
 )
 
 INSERT INTO 

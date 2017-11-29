@@ -113,24 +113,19 @@
                 <br />
                 <br />
                 <br />
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        [ <a href="~/Register.aspx" ID="Register_link" runat="server">Register</a> ]
-                        [ <a href="~/Login.aspx" ID="Login_link" runat="server">Log In</a> ]
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Welcome 
-                        <asp:LoginName ID="LoginName1" runat="server" />
-                        !&nbsp;&nbsp;
-                    </LoggedInTemplate>
-                </asp:LoginView>
+                
+                <asp:Button ID="Register_Button" runat="server" OnClick="Register_Button_Click" Text="Register" />
+&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="Login_Button" runat="server" OnClick="Login_Button_Click" Text="Login" />
+                <asp:Button ID="SignOut_Button" runat="server" OnClick="SignOut_Button_Click" Text="Sign Out" Visible="False" />
+                
         </div>
         <div style="height: 58px; background-color: #465c71">
             <asp:Menu ID="Menu1" runat="server" BorderColor="Black" CssClass="menu" Orientation="Horizontal" StaticSubMenuIndent="16px" style="font-size: xx-large; display: inline-block;">
                 <Items>
                     <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home.aspx"></asp:MenuItem>
                     <asp:MenuItem Text="Computers" Value="Computers" NavigateUrl="~/Computer.aspx"></asp:MenuItem>
-                    <asp:MenuItem Text="Feedback" Value="Feedback" NavigateUrl="~/Feedback.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Feedback" Value="Feedback" NavigateUrl="~/Feedbackform.aspx"></asp:MenuItem>
                     <asp:MenuItem Text="Contact Us" Value="Contact Us" NavigateUrl="~/ContactUs.aspx"></asp:MenuItem>
                 </Items>
             </asp:Menu>
