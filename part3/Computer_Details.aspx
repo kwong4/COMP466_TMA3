@@ -19,7 +19,7 @@
         <asp:Label ID="Computer_Detail_Label" runat="server"></asp:Label>
     </h2>
         <div style ="float:left;">
-            <img alt="" class="computer_image" src="http://localhost:62056/computer.png" />
+            <img alt="" class="computer_image" src="computer.png" />
         </div>
         <div class="auto-style3">
                 <p><strong>OS:</strong>

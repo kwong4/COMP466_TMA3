@@ -1,0 +1,150 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        div.hideSkiplink
+        {
+            background-color:#3a4f63;
+            width:100%;
+        }
+
+        div.menu
+        {
+            padding: 4px 0px 4px 8px;
+        }
+
+        div.menu ul
+        {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            width: auto;
+        }
+
+        div.menu ul li a, div.menu ul li a:visited
+        {
+            background-color: #465c71;
+            border: 1px #4e667d solid;
+            color: #dde4ec;
+            display: block;
+            line-height: 1.35em;
+            padding: 4px 20px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        div.menu ul li a:hover
+        {
+            background-color: #bfcbd6;
+            color: #465c71;
+            text-decoration: none;
+        }
+
+        div.menu ul li a:active
+        {
+            background-color: #465c71;
+            color: #cfdbe6;
+            text-decoration: none;
+        }
+        .auto-style2 {
+            width: 68px;
+            height: 47px;
+            display: inline-block;
+            position: relative;
+            float: right;
+            top: -55px;
+            right: 2px;
+            cursor: pointer;
+        }
+        .title
+        {
+            display: block;
+            float: left;
+            text-align: left;
+            width: auto;
+        }
+
+        .loginDisplay
+        {
+           font-size: 1.1em;
+           display: block;
+           text-align: right;
+           padding: 10px;
+           color: black;
+        }
+
+        .loginDisplay a:link
+        {
+           color: black;
+        }
+
+        .loginDisplay a:visited
+        {
+            color: black;
+        }
+
+        .loginDisplay a:hover
+        {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+       <div class="title">
+                <h1>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="Logo.png" />
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Register.aspx" ID="Register_link" runat="server">Register</a> ]
+                        [ <a href="~/Login.aspx" ID="Login_link" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome 
+                        <asp:LoginName ID="LoginName1" runat="server" />
+                        !&nbsp;&nbsp;
+                    </LoggedInTemplate>
+                </asp:LoginView>
+        </div>
+        <div style="height: 58px; background-color: #465c71">
+            <asp:Menu ID="Menu1" runat="server" BorderColor="Black" CssClass="menu" Orientation="Horizontal" StaticSubMenuIndent="16px" style="font-size: xx-large; display: inline-block;">
+                <Items>
+                    <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Computers" Value="Computers" NavigateUrl="~/Computer.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Feedback" Value="Feedback" NavigateUrl="~/Feedback.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Contact Us" Value="Contact Us" NavigateUrl="~/ContactUs.aspx"></asp:MenuItem>
+                </Items>
+            </asp:Menu>
+            <asp:Image onclick="window.location='Cart.aspx'" runat="server" class="auto-style2" src="Cart_logo.png" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <div style="background-color: #465c71">
+        </div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <div style="background-color: #465c71">
+        </div>
+    </div>
+    </form>
+</body>
+</html>

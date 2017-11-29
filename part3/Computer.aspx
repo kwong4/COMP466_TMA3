@@ -27,7 +27,7 @@
         <hr />
         <h2>Custom Build</h2>
         <div style ="float:left;">
-            <img alt="" class="computer_image" src="http://localhost:62056/computer.png" />
+            <img alt="" class="computer_image" src="computer.png" />
         </div>
         <div class="auto-style3">
             <ul>
@@ -49,7 +49,7 @@
         <hr />
         <h2>Pre-Built #1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 1109.94</h2>
         <div style ="float:left;">
-            <img alt="" class="computer_image" src="http://localhost:62056/computer.png" />
+            <img alt="" class="computer_image" src="computer.png" />
         </div>
         <div class="auto-style3">
             <ul>
@@ -74,7 +74,7 @@
         <hr />
         <h2>Pre-Built #2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 1529.94</h2>
         <div style ="float:left;">
-            <img alt="" class="computer_image" src="http://localhost:62056/computer.png" />
+            <img alt="" class="computer_image" src="computer.png" />
         </div>
         <div class="auto-style3">
             <ul>
@@ -99,7 +99,7 @@
         <hr />
         <h2>Pre-Built #3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ 849.94</h2>
         <div style ="float:left;">
-            <img alt="" class="computer_image" src="http://localhost:62056/computer.png" />
+            <img alt="" class="computer_image" src="computer.png" />
         </div>
         <div class="auto-style3">
             <ul>
