@@ -13,6 +13,9 @@
         <asp:TextBox ID="Recover_Password_Email" runat="server" CssClass="auto-style3" Width="288px"></asp:TextBox>
     </p>
     <p>
+        <asp:Label ID="Invalid_Recover_Error" runat="server" ForeColor="Red"></asp:Label>
+    </p>
+    <p>
         <asp:Button ID="Recover_Password_Button" runat="server" OnClick="Recover_Password_Button_Click" Text="Submit" />
     </p>
 </asp:Content>

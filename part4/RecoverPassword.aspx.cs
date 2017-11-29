@@ -14,10 +14,23 @@ public partial class RecoverPassword : System.Web.UI.Page
 
     protected void Recover_Password_Button_Click(object sender, EventArgs e)
     {
-        // Session
-        Session["RecoverEmail"] = Recover_Password_Email.Text;
+        // Database Content
+        ShopNowDataContext db = new ShopNowDataContext();
 
-        // Redirect
-        Response.Redirect("RecoverPasswordQuestion.aspx");
+        // Lookup Email
+        privatesecurity security = db.privatesecurities.FirstOrDefault(row => (row.Email.Equals(Recover_Password_Email.Text)));
+
+        if (security == null)
+        {
+            Invalid_Recover_Error.Text = "Non-Registered Email. Please try again.";
+        }
+        else
+        {
+            // Session
+            Session["RecoverEmail"] = Recover_Password_Email.Text;
+
+            // Redirect
+            Response.Redirect("RecoverPasswordQuestion.aspx");
+        }
     }
 }

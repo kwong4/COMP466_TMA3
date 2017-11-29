@@ -19,22 +19,46 @@ public partial class RecoverPasswordQuestion : System.Web.UI.Page
         }
         else
         {
-            // Check if email is valid
+            // Database Content
+            ShopNowDataContext db = new ShopNowDataContext();
 
-            // Else post that it is not valid
-            Recover_Password_Security.Text = "No Account associated with email entered. Please try again.";
-            Recover_Password_SecurityQuestion.Visible = false;
-            Recover_Password_UserInput.Visible = false;
-            Submit_SecurityQuestion.Visible = false;
+            // Lookup Email
+            privatesecurity security = db.privatesecurities.FirstOrDefault(row => (row.Email.Equals(Session["RecoverEmail"].ToString())));
+
+            Recover_Password_Security.Text = "Please Answer the following Security Question to recover your password.";
+
+            Recover_Password_SecurityQuestion.Text = security.SecurityQuestion;
         }
     }
 
     protected void Submit_SecurityQuestion_Click(object sender, EventArgs e)
     {
-        // Session
-        Session["RecoverAnswer"] = Recover_Password_UserInput.Text;
+        if (Recover_Password_UserInput.Text == "")
+        {
 
-        // Redirect
-        Response.Redirect("RecoverPasswordSolution.aspx");
+            Invalid_RecoverQuestion_Error.Text = "Please enter an Answer.";
+            
+        }
+        else
+        {
+            // Database Content
+            ShopNowDataContext db = new ShopNowDataContext();
+
+            // Lookup Email
+            privatesecurity security = db.privatesecurities.FirstOrDefault(row => (row.Email.Equals(Session["RecoverEmail"].ToString())));
+
+            if (security.SecurityAnswer.Equals(Recover_Password_UserInput.Text))
+            {
+                // Session
+                Session["RecoveredAnswer"] = security.SecurityAnswer;
+
+                // Redirect
+                Response.Redirect("RecoverPasswordSolution.aspx");
+            }
+            else
+            {
+                Invalid_RecoverQuestion_Error.Text = "Invalid Answer. Please try again.";
+            }
+        }
     }
 }

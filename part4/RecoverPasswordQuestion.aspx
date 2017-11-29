@@ -14,6 +14,9 @@
         <asp:TextBox ID="Recover_Password_UserInput" runat="server"></asp:TextBox>
         <br />
         <br />
+        <asp:Label ID="Invalid_RecoverQuestion_Error" runat="server" ForeColor="Red"></asp:Label>
+        <br />
+        <br />
         <asp:Button ID="Submit_SecurityQuestion" runat="server" OnClick="Submit_SecurityQuestion_Click" Text="Submit" />
     </div>
 </asp:Content>
