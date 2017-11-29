@@ -9,12 +9,39 @@ public partial class ComputeDetails_Confirmation : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        OS_Cart_Label.Text = (String)Session["OS_Cart"];
-        CPU_Cart_Label.Text = (String)Session["CPU_Cart"];
-        RAM_Cart_Label.Text = (String)Session["RAM_Cart"];
-        HD_Cart_Label.Text = (String)Session["HD_Cart"];
-        Display_Cart_Label.Text = (String)Session["Display_Cart"];
-        SC_Cart_Label.Text = (String)Session["SC_Cart"];
-        Cost_Label.Text = (String)Session["Cost"];
+        if (Session["OS_Cart"] != null)
+        {
+            // Database Content
+            ShopNowDataContext db = new ShopNowDataContext();
+
+            // Pull corresponding row given the selected value
+            O OS = db.Os.FirstOrDefault(row => row.ID.Equals(Session["OS_Cart"].ToString()));
+            CPU cPU = db.CPUs.FirstOrDefault(row => row.ID.Equals(Session["CPU_Cart"].ToString()));
+            RAM rAM = db.RAMs.FirstOrDefault(row => row.ID.Equals(Session["RAM_Cart"].ToString()));
+            HardDrive hardDrive = db.HardDrives.FirstOrDefault(row => row.ID.Equals(Session["HD_Cart"].ToString()));
+            Monitor monitor = db.Monitors.FirstOrDefault(row => row.ID.Equals(Session["Display_Cart"].ToString()));
+            SoundCard soundCard = db.SoundCards.FirstOrDefault(row => row.ID.Equals(Session["SC_Cart"].ToString()));
+
+            Confirmation_Label.Text = "You have added a Computer with the following information to the cart:";
+            OS_Cart_Label.Text = OS.Name;
+            CPU_Cart_Label.Text = cPU.Name;
+            RAM_Cart_Label.Text = rAM.Name;
+            HD_Cart_Label.Text = hardDrive.Name;
+            Display_Cart_Label.Text = monitor.Name;
+            SC_Cart_Label.Text = soundCard.Name;
+            Cost_Label.Text = (String)Session["Cost"];
+
+            Session["OS_Cart"] = null;
+            Session["CPU_Cart"] = null;
+            Session["RAM_Cart"] = null;
+            Session["HD_Cart"] = null;
+            Session["Display_Cart"] = null;
+            Session["SC_Cart"] = null;
+            Session["Cost"] = null;
+        }
+        else
+        {
+            Confirmation_Label.Text = "Invalid navigation to 'Add Cart Confirmation'";
+        }
     }
 }

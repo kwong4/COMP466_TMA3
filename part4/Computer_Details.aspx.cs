@@ -89,12 +89,12 @@ public partial class Computer_Details : System.Web.UI.Page
     protected void Detail_Add_to_Cart_Click(object sender, EventArgs e)
     {
         // Session
-        Session["OS_Cart"] = OSDropDownList.SelectedItem.Text;
-        Session["CPU_Cart"] = CPUDropDownList.SelectedItem.Text;
-        Session["RAM_Cart"] = RAMDropDownList.SelectedItem.Text;
-        Session["HD_Cart"] = HardDriveDropDownList.SelectedItem.Text;
-        Session["Display_Cart"] = DisplayDropDownList.SelectedItem.Text;
-        Session["SC_Cart"] = SoundCardDropDownList.SelectedItem.Text;
+        Session["OS_Cart"] = OSDropDownList.SelectedValue;
+        Session["CPU_Cart"] = CPUDropDownList.SelectedValue;
+        Session["RAM_Cart"] = RAMDropDownList.SelectedValue;
+        Session["HD_Cart"] = HardDriveDropDownList.SelectedValue;
+        Session["Display_Cart"] = DisplayDropDownList.SelectedValue;
+        Session["SC_Cart"] = SoundCardDropDownList.SelectedValue;
         Session["Cost"] = Computer_Cost_Label.Text;
 
         // Redirect

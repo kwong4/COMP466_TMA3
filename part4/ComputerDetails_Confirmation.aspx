@@ -10,7 +10,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h1>Confirmation</h1>
     <p>
-        You have added a Computer with the following information to the cart:</p>
+        <asp:Label ID="Confirmation_Label" runat="server"></asp:Label>
+    </p>
     <h2><span class="auto-style3">Computer:</span>
         <asp:Label ID="OS_Cart_Label" runat="server"></asp:Label>
     </h2>

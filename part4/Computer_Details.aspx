@@ -53,7 +53,7 @@
                 <p><strong>DISPLAY:</strong> 
                     <asp:DropDownList ID="DisplayDropDownList" runat="server" OnSelectedIndexChanged="SelectedIndexChanged" AutoPostBack="True" DataSourceID="DisplayLinqDataSource" DataTextField="Name" DataValueField="ID">
                     </asp:DropDownList>
-                    <asp:LinqDataSource ID="DisplayLinqDataSource" runat="server" ContextTypeName="ShopNowDataContext" EntityTypeName="" TableName="CPUs">
+                    <asp:LinqDataSource ID="DisplayLinqDataSource" runat="server" ContextTypeName="ShopNowDataContext" EntityTypeName="" TableName="Monitors">
                     </asp:LinqDataSource>
                     <asp:Label ID="DisplayCost" runat="server"></asp:Label>
                 </p>
