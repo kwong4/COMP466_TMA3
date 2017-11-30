@@ -116,6 +116,8 @@
                 
                 <asp:Button ID="Register_Button" runat="server" OnClick="Register_Button_Click" Text="Register" />
 &nbsp;&nbsp;&nbsp;
+                <asp:Button ID="Orders_Button" runat="server" OnClick="Orders_Button_Click1" Text="My Orders" Visible="False" />
+&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="Login_Button" runat="server" OnClick="Login_Button_Click" Text="Login" />
                 <asp:Button ID="SignOut_Button" runat="server" OnClick="SignOut_Button_Click" Text="Sign Out" Visible="False" />
                 

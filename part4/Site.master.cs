@@ -14,6 +14,7 @@ public partial class Site : System.Web.UI.MasterPage
             Register_Button.Visible = false;
             Login_Button.Visible = false;
             SignOut_Button.Visible = true;
+            Orders_Button.Visible = true;
         }
     }
 
@@ -35,5 +36,11 @@ public partial class Site : System.Web.UI.MasterPage
 
         // Redirect
         Response.Redirect("Home.aspx");
+    }
+
+    protected void Orders_Button_Click1(object sender, EventArgs e)
+    {
+        // Redirect
+        Response.Redirect("Orders.aspx");
     }
 }
