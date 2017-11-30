@@ -32,12 +32,18 @@ public partial class ShopNowDataContext : System.Data.Linq.DataContext
   partial void InsertCPU(CPU instance);
   partial void UpdateCPU(CPU instance);
   partial void DeleteCPU(CPU instance);
+  partial void InsertFeedback(Feedback instance);
+  partial void UpdateFeedback(Feedback instance);
+  partial void DeleteFeedback(Feedback instance);
   partial void InsertHardDrive(HardDrive instance);
   partial void UpdateHardDrive(HardDrive instance);
   partial void DeleteHardDrive(HardDrive instance);
   partial void InsertMonitor(Monitor instance);
   partial void UpdateMonitor(Monitor instance);
   partial void DeleteMonitor(Monitor instance);
+  partial void InsertOrder(Order instance);
+  partial void UpdateOrder(Order instance);
+  partial void DeleteOrder(Order instance);
   partial void InsertO(O instance);
   partial void UpdateO(O instance);
   partial void DeleteO(O instance);
@@ -183,6 +189,8 @@ public partial class CPU : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private string _Cost;
 	
+	private EntitySet<Order> _Orders;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -197,6 +205,7 @@ public partial class CPU : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public CPU()
 	{
+		this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 		OnCreated();
 	}
 	
@@ -260,6 +269,19 @@ public partial class CPU : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CPU_Order", Storage="_Orders", ThisKey="ID", OtherKey="CPU_ID")]
+	public EntitySet<Order> Orders
+	{
+		get
+		{
+			return this._Orders;
+		}
+		set
+		{
+			this._Orders.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -279,19 +301,42 @@ public partial class CPU : INotifyPropertyChanging, INotifyPropertyChanged
 			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
+	
+	private void attach_Orders(Order entity)
+	{
+		this.SendPropertyChanging();
+		entity.CPU = this;
+	}
+	
+	private void detach_Orders(Order entity)
+	{
+		this.SendPropertyChanging();
+		entity.CPU = null;
+	}
 }
 
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Feedback")]
-public partial class Feedback
+public partial class Feedback : INotifyPropertyChanging, INotifyPropertyChanged
 {
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 	
 	private string _User_Feedback;
 	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUser_FeedbackChanging(string value);
+    partial void OnUser_FeedbackChanged();
+    #endregion
+	
 	public Feedback()
 	{
+		OnCreated();
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_User_Feedback", DbType="VarChar(300)", IsPrimaryKey = true)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_User_Feedback", DbType="VarChar(300) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 	public string User_Feedback
 	{
 		get
@@ -302,8 +347,32 @@ public partial class Feedback
 		{
 			if ((this._User_Feedback != value))
 			{
+				this.OnUser_FeedbackChanging(value);
+				this.SendPropertyChanging();
 				this._User_Feedback = value;
+				this.SendPropertyChanged("User_Feedback");
+				this.OnUser_FeedbackChanged();
 			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }
@@ -320,6 +389,8 @@ public partial class HardDrive : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private string _Cost;
 	
+	private EntitySet<Order> _Orders;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -334,6 +405,7 @@ public partial class HardDrive : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public HardDrive()
 	{
+		this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 		OnCreated();
 	}
 	
@@ -397,6 +469,19 @@ public partial class HardDrive : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HardDrive_Order", Storage="_Orders", ThisKey="ID", OtherKey="HardDrive_ID")]
+	public EntitySet<Order> Orders
+	{
+		get
+		{
+			return this._Orders;
+		}
+		set
+		{
+			this._Orders.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -415,6 +500,18 @@ public partial class HardDrive : INotifyPropertyChanging, INotifyPropertyChanged
 		{
 			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
+	}
+	
+	private void attach_Orders(Order entity)
+	{
+		this.SendPropertyChanging();
+		entity.HardDrive = this;
+	}
+	
+	private void detach_Orders(Order entity)
+	{
+		this.SendPropertyChanging();
+		entity.HardDrive = null;
 	}
 }
 
@@ -430,6 +527,8 @@ public partial class Monitor : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private string _Cost;
 	
+	private EntitySet<Order> _Orders;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -444,6 +543,7 @@ public partial class Monitor : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public Monitor()
 	{
+		this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 		OnCreated();
 	}
 	
@@ -507,6 +607,19 @@ public partial class Monitor : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Monitor_Order", Storage="_Orders", ThisKey="ID", OtherKey="Monitor_ID")]
+	public EntitySet<Order> Orders
+	{
+		get
+		{
+			return this._Orders;
+		}
+		set
+		{
+			this._Orders.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -526,11 +639,29 @@ public partial class Monitor : INotifyPropertyChanging, INotifyPropertyChanged
 			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
+	
+	private void attach_Orders(Order entity)
+	{
+		this.SendPropertyChanging();
+		entity.Monitor = this;
+	}
+	
+	private void detach_Orders(Order entity)
+	{
+		this.SendPropertyChanging();
+		entity.Monitor = null;
+	}
 }
 
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Orders")]
-public partial class Order
+public partial class Order : INotifyPropertyChanging, INotifyPropertyChanged
 {
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private System.Guid _Order_ID;
+	
+	private System.Guid _InternalComp_ID;
 	
 	private int _OS_ID;
 	
@@ -548,8 +679,93 @@ public partial class Order
 	
 	private string _Username;
 	
+	private EntityRef<CPU> _CPU;
+	
+	private EntityRef<HardDrive> _HardDrive;
+	
+	private EntityRef<Monitor> _Monitor;
+	
+	private EntityRef<O> _O;
+	
+	private EntityRef<RAM> _RAM;
+	
+	private EntityRef<SoundCard> _SoundCard;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOrder_IDChanging(System.Guid value);
+    partial void OnOrder_IDChanged();
+    partial void OnInternalComp_IDChanging(System.Guid value);
+    partial void OnInternalComp_IDChanged();
+    partial void OnOS_IDChanging(int value);
+    partial void OnOS_IDChanged();
+    partial void OnCPU_IDChanging(int value);
+    partial void OnCPU_IDChanged();
+    partial void OnRAM_IDChanging(int value);
+    partial void OnRAM_IDChanged();
+    partial void OnHardDrive_IDChanging(int value);
+    partial void OnHardDrive_IDChanged();
+    partial void OnMonitor_IDChanging(int value);
+    partial void OnMonitor_IDChanged();
+    partial void OnSoundCard_IDChanging(int value);
+    partial void OnSoundCard_IDChanged();
+    partial void OnCostChanging(string value);
+    partial void OnCostChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    #endregion
+	
 	public Order()
 	{
+		this._CPU = default(EntityRef<CPU>);
+		this._HardDrive = default(EntityRef<HardDrive>);
+		this._Monitor = default(EntityRef<Monitor>);
+		this._O = default(EntityRef<O>);
+		this._RAM = default(EntityRef<RAM>);
+		this._SoundCard = default(EntityRef<SoundCard>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Order_ID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+	public System.Guid Order_ID
+	{
+		get
+		{
+			return this._Order_ID;
+		}
+		set
+		{
+			if ((this._Order_ID != value))
+			{
+				this.OnOrder_IDChanging(value);
+				this.SendPropertyChanging();
+				this._Order_ID = value;
+				this.SendPropertyChanged("Order_ID");
+				this.OnOrder_IDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InternalComp_ID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+	public System.Guid InternalComp_ID
+	{
+		get
+		{
+			return this._InternalComp_ID;
+		}
+		set
+		{
+			if ((this._InternalComp_ID != value))
+			{
+				this.OnInternalComp_IDChanging(value);
+				this.SendPropertyChanging();
+				this._InternalComp_ID = value;
+				this.SendPropertyChanged("InternalComp_ID");
+				this.OnInternalComp_IDChanged();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OS_ID", DbType="Int NOT NULL")]
@@ -563,7 +779,15 @@ public partial class Order
 		{
 			if ((this._OS_ID != value))
 			{
+				if (this._O.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnOS_IDChanging(value);
+				this.SendPropertyChanging();
 				this._OS_ID = value;
+				this.SendPropertyChanged("OS_ID");
+				this.OnOS_IDChanged();
 			}
 		}
 	}
@@ -579,7 +803,15 @@ public partial class Order
 		{
 			if ((this._CPU_ID != value))
 			{
+				if (this._CPU.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnCPU_IDChanging(value);
+				this.SendPropertyChanging();
 				this._CPU_ID = value;
+				this.SendPropertyChanged("CPU_ID");
+				this.OnCPU_IDChanged();
 			}
 		}
 	}
@@ -595,7 +827,15 @@ public partial class Order
 		{
 			if ((this._RAM_ID != value))
 			{
+				if (this._RAM.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnRAM_IDChanging(value);
+				this.SendPropertyChanging();
 				this._RAM_ID = value;
+				this.SendPropertyChanged("RAM_ID");
+				this.OnRAM_IDChanged();
 			}
 		}
 	}
@@ -611,7 +851,15 @@ public partial class Order
 		{
 			if ((this._HardDrive_ID != value))
 			{
+				if (this._HardDrive.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnHardDrive_IDChanging(value);
+				this.SendPropertyChanging();
 				this._HardDrive_ID = value;
+				this.SendPropertyChanged("HardDrive_ID");
+				this.OnHardDrive_IDChanged();
 			}
 		}
 	}
@@ -627,7 +875,15 @@ public partial class Order
 		{
 			if ((this._Monitor_ID != value))
 			{
+				if (this._Monitor.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnMonitor_IDChanging(value);
+				this.SendPropertyChanging();
 				this._Monitor_ID = value;
+				this.SendPropertyChanged("Monitor_ID");
+				this.OnMonitor_IDChanged();
 			}
 		}
 	}
@@ -643,7 +899,15 @@ public partial class Order
 		{
 			if ((this._SoundCard_ID != value))
 			{
+				if (this._SoundCard.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnSoundCard_IDChanging(value);
+				this.SendPropertyChanging();
 				this._SoundCard_ID = value;
+				this.SendPropertyChanged("SoundCard_ID");
+				this.OnSoundCard_IDChanged();
 			}
 		}
 	}
@@ -659,7 +923,11 @@ public partial class Order
 		{
 			if ((this._Cost != value))
 			{
+				this.OnCostChanging(value);
+				this.SendPropertyChanging();
 				this._Cost = value;
+				this.SendPropertyChanged("Cost");
+				this.OnCostChanged();
 			}
 		}
 	}
@@ -675,8 +943,236 @@ public partial class Order
 		{
 			if ((this._Username != value))
 			{
+				this.OnUsernameChanging(value);
+				this.SendPropertyChanging();
 				this._Username = value;
+				this.SendPropertyChanged("Username");
+				this.OnUsernameChanged();
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CPU_Order", Storage="_CPU", ThisKey="CPU_ID", OtherKey="ID", IsForeignKey=true)]
+	public CPU CPU
+	{
+		get
+		{
+			return this._CPU.Entity;
+		}
+		set
+		{
+			CPU previousValue = this._CPU.Entity;
+			if (((previousValue != value) 
+						|| (this._CPU.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._CPU.Entity = null;
+					previousValue.Orders.Remove(this);
+				}
+				this._CPU.Entity = value;
+				if ((value != null))
+				{
+					value.Orders.Add(this);
+					this._CPU_ID = value.ID;
+				}
+				else
+				{
+					this._CPU_ID = default(int);
+				}
+				this.SendPropertyChanged("CPU");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HardDrive_Order", Storage="_HardDrive", ThisKey="HardDrive_ID", OtherKey="ID", IsForeignKey=true)]
+	public HardDrive HardDrive
+	{
+		get
+		{
+			return this._HardDrive.Entity;
+		}
+		set
+		{
+			HardDrive previousValue = this._HardDrive.Entity;
+			if (((previousValue != value) 
+						|| (this._HardDrive.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._HardDrive.Entity = null;
+					previousValue.Orders.Remove(this);
+				}
+				this._HardDrive.Entity = value;
+				if ((value != null))
+				{
+					value.Orders.Add(this);
+					this._HardDrive_ID = value.ID;
+				}
+				else
+				{
+					this._HardDrive_ID = default(int);
+				}
+				this.SendPropertyChanged("HardDrive");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Monitor_Order", Storage="_Monitor", ThisKey="Monitor_ID", OtherKey="ID", IsForeignKey=true)]
+	public Monitor Monitor
+	{
+		get
+		{
+			return this._Monitor.Entity;
+		}
+		set
+		{
+			Monitor previousValue = this._Monitor.Entity;
+			if (((previousValue != value) 
+						|| (this._Monitor.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Monitor.Entity = null;
+					previousValue.Orders.Remove(this);
+				}
+				this._Monitor.Entity = value;
+				if ((value != null))
+				{
+					value.Orders.Add(this);
+					this._Monitor_ID = value.ID;
+				}
+				else
+				{
+					this._Monitor_ID = default(int);
+				}
+				this.SendPropertyChanged("Monitor");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="O_Order", Storage="_O", ThisKey="OS_ID", OtherKey="ID", IsForeignKey=true)]
+	public O O
+	{
+		get
+		{
+			return this._O.Entity;
+		}
+		set
+		{
+			O previousValue = this._O.Entity;
+			if (((previousValue != value) 
+						|| (this._O.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._O.Entity = null;
+					previousValue.Orders.Remove(this);
+				}
+				this._O.Entity = value;
+				if ((value != null))
+				{
+					value.Orders.Add(this);
+					this._OS_ID = value.ID;
+				}
+				else
+				{
+					this._OS_ID = default(int);
+				}
+				this.SendPropertyChanged("O");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RAM_Order", Storage="_RAM", ThisKey="RAM_ID", OtherKey="ID", IsForeignKey=true)]
+	public RAM RAM
+	{
+		get
+		{
+			return this._RAM.Entity;
+		}
+		set
+		{
+			RAM previousValue = this._RAM.Entity;
+			if (((previousValue != value) 
+						|| (this._RAM.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._RAM.Entity = null;
+					previousValue.Orders.Remove(this);
+				}
+				this._RAM.Entity = value;
+				if ((value != null))
+				{
+					value.Orders.Add(this);
+					this._RAM_ID = value.ID;
+				}
+				else
+				{
+					this._RAM_ID = default(int);
+				}
+				this.SendPropertyChanged("RAM");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SoundCard_Order", Storage="_SoundCard", ThisKey="SoundCard_ID", OtherKey="ID", IsForeignKey=true)]
+	public SoundCard SoundCard
+	{
+		get
+		{
+			return this._SoundCard.Entity;
+		}
+		set
+		{
+			SoundCard previousValue = this._SoundCard.Entity;
+			if (((previousValue != value) 
+						|| (this._SoundCard.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._SoundCard.Entity = null;
+					previousValue.Orders.Remove(this);
+				}
+				this._SoundCard.Entity = value;
+				if ((value != null))
+				{
+					value.Orders.Add(this);
+					this._SoundCard_ID = value.ID;
+				}
+				else
+				{
+					this._SoundCard_ID = default(int);
+				}
+				this.SendPropertyChanged("SoundCard");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }
@@ -693,6 +1189,8 @@ public partial class O : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private string _Cost;
 	
+	private EntitySet<Order> _Orders;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -707,6 +1205,7 @@ public partial class O : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public O()
 	{
+		this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 		OnCreated();
 	}
 	
@@ -770,6 +1269,19 @@ public partial class O : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="O_Order", Storage="_Orders", ThisKey="ID", OtherKey="OS_ID")]
+	public EntitySet<Order> Orders
+	{
+		get
+		{
+			return this._Orders;
+		}
+		set
+		{
+			this._Orders.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -788,6 +1300,18 @@ public partial class O : INotifyPropertyChanging, INotifyPropertyChanged
 		{
 			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
+	}
+	
+	private void attach_Orders(Order entity)
+	{
+		this.SendPropertyChanging();
+		entity.O = this;
+	}
+	
+	private void detach_Orders(Order entity)
+	{
+		this.SendPropertyChanging();
+		entity.O = null;
 	}
 }
 
@@ -976,7 +1500,7 @@ public partial class privatesecurity
 	{
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 	public string Email
 	{
 		get
@@ -1037,6 +1561,8 @@ public partial class RAM : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private string _Cost;
 	
+	private EntitySet<Order> _Orders;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1051,6 +1577,7 @@ public partial class RAM : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public RAM()
 	{
+		this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 		OnCreated();
 	}
 	
@@ -1114,6 +1641,19 @@ public partial class RAM : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RAM_Order", Storage="_Orders", ThisKey="ID", OtherKey="RAM_ID")]
+	public EntitySet<Order> Orders
+	{
+		get
+		{
+			return this._Orders;
+		}
+		set
+		{
+			this._Orders.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -1132,6 +1672,18 @@ public partial class RAM : INotifyPropertyChanging, INotifyPropertyChanged
 		{
 			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
+	}
+	
+	private void attach_Orders(Order entity)
+	{
+		this.SendPropertyChanging();
+		entity.RAM = this;
+	}
+	
+	private void detach_Orders(Order entity)
+	{
+		this.SendPropertyChanging();
+		entity.RAM = null;
 	}
 }
 
@@ -1147,6 +1699,8 @@ public partial class SoundCard : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private string _Cost;
 	
+	private EntitySet<Order> _Orders;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1161,6 +1715,7 @@ public partial class SoundCard : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public SoundCard()
 	{
+		this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 		OnCreated();
 	}
 	
@@ -1224,6 +1779,19 @@ public partial class SoundCard : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SoundCard_Order", Storage="_Orders", ThisKey="ID", OtherKey="SoundCard_ID")]
+	public EntitySet<Order> Orders
+	{
+		get
+		{
+			return this._Orders;
+		}
+		set
+		{
+			this._Orders.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -1242,6 +1810,18 @@ public partial class SoundCard : INotifyPropertyChanging, INotifyPropertyChanged
 		{
 			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
+	}
+	
+	private void attach_Orders(Order entity)
+	{
+		this.SendPropertyChanging();
+		entity.SoundCard = this;
+	}
+	
+	private void detach_Orders(Order entity)
+	{
+		this.SendPropertyChanging();
+		entity.SoundCard = null;
 	}
 }
 

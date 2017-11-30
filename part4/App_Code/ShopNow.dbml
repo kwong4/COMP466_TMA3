@@ -11,7 +11,7 @@
   </Table>
   <Table Name="dbo.Feedback" Member="Feedbacks">
     <Type Name="Feedback">
-      <Column Name="User_Feedback" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="User_Feedback" Type="System.String" DbType="VarChar(300) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.HardDrive" Member="HardDrives">
@@ -34,6 +34,8 @@
   </Table>
   <Table Name="dbo.Orders" Member="Orders">
     <Type Name="Order">
+      <Column Name="Order_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="InternalComp_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="OS_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CPU_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RAM_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -48,7 +50,6 @@
       <Association Name="O_Order" Member="O" ThisKey="OS_ID" OtherKey="ID" Type="O" IsForeignKey="true" />
       <Association Name="RAM_Order" Member="RAM" ThisKey="RAM_ID" OtherKey="ID" Type="RAM" IsForeignKey="true" />
       <Association Name="SoundCard_Order" Member="SoundCard" ThisKey="SoundCard_ID" OtherKey="ID" Type="SoundCard" IsForeignKey="true" />
-      <Association Name="user_Order" Member="user" ThisKey="Username" OtherKey="Username" Type="user" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.OS" Member="Os">
@@ -110,7 +111,6 @@
       <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="user_Order" Member="Orders" ThisKey="Username" OtherKey="Username" Type="Order" />
       <Association Name="user_privatesecurity" Member="privatesecurities" ThisKey="Email" OtherKey="Email" Type="privatesecurity" />
     </Type>
   </Table>

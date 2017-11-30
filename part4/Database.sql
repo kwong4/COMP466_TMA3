@@ -117,6 +117,8 @@ CREATE TABLE PreMade
 
 CREATE TABLE Orders
 (
+	Order_ID UNIQUEIDENTIFIER NOT NULL,
+	InternalComp_ID UNIQUEIDENTIFIER NOT NULL,
 	OS_ID int NOT NULL,
 	CPU_ID int NOT NULL,
 	RAM_ID int NOT NULL,
@@ -131,7 +133,7 @@ CREATE TABLE Orders
 	FOREIGN KEY (HardDrive_ID) REFERENCES dbo.HardDrive (ID),
 	FOREIGN KEY (Monitor_ID) REFERENCES dbo.Monitor (ID),
 	FOREIGN KEY (SoundCard_ID) REFERENCES dbo.SoundCard (ID),
-	FOREIGN KEY (Username) REFERENCES dbo.users (Username)
+	PRIMARY KEY (Order_ID, InternalComp_ID)
 )
 
 CREATE TABLE Feedback
