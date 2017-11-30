@@ -1,0 +1,219 @@
+/* COMP466 Assignment 1: styles.css
+Name: Kevin Wong
+ID: 3339323 */
+/* External style sheet */
+
+body { 
+	font-family: arial, helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.resume { 
+	font-family: arial, helvetica, sans-serif; 
+	margin-left: 4ex;
+}
+
+.navigation {
+	background-color: #ffffff;
+	color: #000000;
+	list-style: none;
+	text-align: right;
+	padding: 3ex 0 3ex 0;
+}
+
+.navigation > li {
+	display: inline-block;
+	padding: 0 3ex 0 3ex;
+	font-size: 3ex;
+}
+
+.navigation > li:last-child {
+	display: inline-block;
+	padding: 0 6ex 0 3ex;
+}
+
+.navigation > li:hover {
+	color: #00FFFF;
+}
+
+.title {
+	color: #000000;
+	float: left;
+	font-size: 4ex;
+	font-weight: bold;
+	padding-left: 2ex;
+}
+
+.important {
+	font-weight: bold;
+}
+
+.banner {
+	width: 100%;
+	display: block;
+	padding: 6ex 0 0 0;
+}
+
+.answer {
+	display: inline-block;
+}
+
+.submit {
+	text-align: center;
+	position: relative;
+	padding: 1ex 0 1ex 0;
+	margin: 2ex 0 2ex 0;
+	left: 50%;
+	width: 10%;
+}
+
+.captions {
+	text-align:center ;
+	left: 50%;
+}
+
+.highlight {
+	background-color: #73AD21;
+}
+
+.bulk {
+	padding: 1ex 0 3ex 3ex;
+}
+
+.assignment_parts {
+	padding: 1ex 3ex 3ex 3ex;
+}
+
+.banner_image {
+	width: 100%;
+	display: block;
+}
+
+div.tabbed {
+	margin-left: 5ex;
+}
+
+ul li {
+	padding: 1ex;
+}
+
+.section_portion {
+	padding-left: 3ex;
+}
+
+.description_para {
+	padding-left: 7ex;
+}
+
+.slideshow {
+	width: 50%;
+}
+
+.rectangle {
+	width:100%;
+	height:100px;
+	border:1px solid #000000;
+	background-color: #000000;
+}
+
+.outer_box {
+	width:80%;
+	height:80%;
+	margin:0 auto;
+	position:relative
+	border:1px solid #000000;
+}
+
+.inner_box {
+	width:40%;
+	height:40%;
+	padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+	border: 1px solid #000000
+}
+
+.control_menu {
+	background-color: #ffffff;
+	border-width: 1ex;
+	border-color: #000000;
+	color: #000000;
+	list-style: none;
+	text-align: center;
+	padding: 3ex 3ex 3ex 3ex;
+}
+
+.control_menu > li {
+	display: inline-block;
+	padding: 0 3ex 0 3ex;
+	font-size: 3ex;
+}
+
+.control_menu > li:last-child {
+	text-align: left;
+}
+
+.hidden {
+	display: none;
+}
+
+.select_menu {
+	font-size: 3ex;
+}
+
+.box_curr_unit {
+	border-color: #000000;
+	border-width: 1ex;
+	border-style: solid;
+	display: inline-block;
+	margin: 5ex;
+	padding: 3ex;
+}
+
+.submit_it {
+	background-color: #ffffff;
+	margin-left: 41ex;
+	border-width: 1ex;
+	border-color: #000000;
+	color: #000000;
+	list-style: none;
+	text-align: center;
+	padding: 3ex 3ex 3ex 3ex;
+}
+
+.calculate_it {
+	background-color: #ffffff;
+	margin-left: 45ex;
+	border-width: 1ex;
+	border-color: #000000;
+	color: #000000;
+	list-style: none;
+	text-align: center;
+	padding: 3ex 3ex 3ex 3ex;
+}
+
+.input_aligned {
+	float: right;
+}
+
+.box_curr_course {
+	border-color: #000000;
+	border-width: 1ex;
+	border-style: solid;
+	display: inline-block;
+	margin: 1ex 5ex 1ex 5ex;
+	padding: 3ex;
+}
+
+.add_course {
+	background-color: #ffffff;
+	margin-left: 35ex;
+	border-width: 1ex;
+	border-color: #000000;
+	color: #000000;
+	list-style: none;
+	text-align: center;
+}
