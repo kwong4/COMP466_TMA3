@@ -1,5 +1,5 @@
 /*
-COMP466 Assignment 1: Main Page - tma.js
+COMP466 Assignment 3: Main Page - tma.js
 Name: Kevin Wong							
 ID: 3339323								
 */

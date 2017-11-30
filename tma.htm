@@ -58,15 +58,15 @@
 
 			<hr/>
 			<h3>Interpretation of Assignment:</h3>
-			<p></p>
+			<p>My interpretation of the assignment was to create a basic web application to get you introduced to ASP.NET. This application was suppose to be basic and show all the necessary information to the user (number of hits, IP address, and time zone)</p>
 
 			<hr/>
 			<h3>Analysis, Design, and Implementation</h3>
-			<p></p>
+			<p>So for the my analysis and design of this application, I first created the GUI for the web application. This just involved headings and labels. The labels would be updated once the application ran. For the cookie, I just created the cookies and increased the count that it kept track of whenever the user Loaded the page. Similarly, when the user arrives, I would use HttpContext to pull the ipAddress (First checked if they hid behind a forwarded server/location) then used their first address given. Then for the time zone, this was a little tricky. But eventually after trial, error, and researching I learned that this should be done on the client side - JavaScript. So I used JavaScript to find the difference in time zones and compute their time zone from that.</p>
 
 			<hr/>
 			<h3>Guide</h3>
-			<p></p>
+			<p>Launch the page and you will see your stats on this page.</p>
 
 			<hr/>
 			<h2><a href = "part1">Source Files</a></h2>
@@ -93,15 +93,19 @@
 
 			<hr/>
 			<h3>Interpretation of Assignment:</h3>
-			<p></p>
+			<p>My interpretation of this assignment was to create a simple - yet functional slideshow web application. This application was meant to display the information to the user from the serverside. There should be caption with each picture with controls to control the foward, backward, and automatic (sequential and random) transition of the slideshow. I believe this should also be simplistic but slowly build upon your ASP.Net skils.</p>
 
 			<hr/>
 			<h3>Analysis, Design, and Implementation</h3>
-			<p></p>
+			<p>My Analysis and Design of this application was to first create the necessary layout for the application. This included a main image screen, along with tools (buttons and dropdown box). At first it was a bit difficult learning all of the controls for design and CSS bits but soon it began to be easier as I learned it. Then I created the slideshow to do basic forward and backward movements with hard-coded images. After that worked I created a SQL Database with SQL Server Management Studio and moved the mdf file to Visual Studio. Then after I created a LINQTOSQL Class to access this data. The hard part was making the page update correctly on the server side end. After I realize that the page was posting I used ViewState which helped keep track of the necessary information for the application to run correctly.</p>
 
+			<h3>Database Design</h3>
+			<p>Here is a picture of my Database design. It is simple but contains a ID, and necessary information (URL and Caption).</p>
+			<img src = "shared/part2Database.PNG">
+			<p>You may also run Database.sql to produce the tables with the correct information.</p>
 			<hr/>
 			<h3>Guide</h3>
-			<p></p>
+			<p>Use the Forward and Backward buttons to move the slideshow forward and backwards respectively. This is only available in Sequential mode. There are two modes, Sequential and Random which both function as described when you hit "Start" to begin automatic movement of the slideshow. Manual controls only available in "Sequential" and hit "Stop" to stop a running slideshow.</p>
 
 			<hr/>
 			<h2><a href = "part2">Source Files</a></h2>
@@ -129,16 +133,44 @@
 			<p>All files for this project should be stored under directory TMA3A/part3</p>
 
 			<hr/>
+			<h3>Assignment Report - BestBuy and Amazon</h3>
+			<p>From my analysis on Bestbuy and Amazon, they both have robust sites that make effective and efficient use of their space. In a overall look at their sites, the show a easy and appealing GUI that include categorizations and search functionalities. Their approach is to make it as easy as it can be for a user to find the items they need so that they can profit. In these sites there is a general listing of products (either list or grid view) of the products with short descriptions. The pictures ensure that users focus their attention on some items rather than others. You can further click onto a product and view additional details. Most of the time, any time you see a product, you can add it to your "Cart" of product you may wish to purchase. Therefore, the listview and the details views both a an "Add to Cart" functionality. After you have added the items to your cart, you can go to the cart and review the items you wish to purchase. There shows another view of the information of the product, quantity, and price. If you wish, you are able to remove or add any product at this point. Afterward you are able to "Checkout" to pay for your products. However you must enter additional information. However, if you are a user, you are able to run with pre-set information on your profile to speed up this transaction. In addition, if you are signed in you are able to view and save your orders. The functionality and design of the site is simple, elegant, fast, smooth, and looks great to attract customers.</p>
+			<br>
+
+			<hr/>
+			<h3>Requirements</h3>
+			<p>The requirements of this web applications is that it need to be simple, elegant, fast, and smooth. It first needs a landing page to introduce users to the site, then it needs a producting listing page, a logo, a feedbackform, a contract form, a checkout cart, Login page (Register and Login), and a Product Details page. The feedback and contact page will be simple, but here are some of the mockups of the site.</p>
+
+			<p>Home</p>
+			<img src = "shared/home.png">
+			<br>
+
+			<p>Computers</p>
+			<img src = "shared/Computers.png">
+			<br>
+
+			<p>Cart</p>
+			<img src = "shared/Cart.png">
+			<br>
+
+			<p>Register</p>
+			<img src = "shared/Register.png">
+			<br>
+
+			<p>So these are just the main basic components of the site since the Contact Us will just be text, the Feedback form will just be an input text field with a submit button, and the login will be similar but shorter version of the register mock up. Overall I think the purpose of a mockup is get the general template of it site, and as you work on the project, you can iron out small details whether that be adding or deleting certain sections.</p>
+
+			<hr/>
+			<br>
 			<h3>Interpretation of Assignment:</h3>
-			<p></p>
+			<p>My Interpretation of the assignment was to focus mainly on the design and template of the site. It's hard a lot of times to design as you go since problems in the future may arise. So this portion of the assignment should really focus on creating a site with a nice GUI, and this is when the flow of the site should be ironed out. Most of the site functionality should work, however it should either function with cookies, hard-coded  portions, or should not work just yet (Register, Cart, and Order system). The site should be linked together and provide a smooth flow that is easy to pick up.</p>
 
 			<hr/>
 			<h3>Analysis, Design, and Implementation</h3>
-			<p></p>
+			<p>So in my analysis and implementation of the design I first started off from mock designs. Using these mock designs, I created multiple ASP.NET pages. Creating some portions w/ CSS was a bit difficult at first. Then after creating the pages, I linked them together - at first I used the PostBack function of most button clicks, but I found out the function associated with the functions didn't complete, so I opted in to redirect it within the click function. Then after the portions were linked, I hard-coded information about different computers. Then I used Session to transfer information and PostBack checks for page updates (on Price for example). By using Sessions, I was able to pass data around effectively, however the login and cart did not fully work without a database backing them up. The functionality of this portion should be basic in comparsion to part 4 since we focused on design in this section.</p>
 
 			<hr/>
 			<h3>Guide</h3>
-			<p></p>
+			<p>Feel free to navigate the site and follow buttons that are self-explainatory. You are able to view details of computers, customize, and "Pretend Add to Cart", but the cart isn't fully functional yet. In addition the Sign in and Register are not fully functional.</p>
 
 			<hr/>
 			<h2><a href = "part3">Source Files</a></h2>
@@ -166,15 +198,28 @@
 
 			<hr/>
 			<h3>Interpretation of Assignment:</h3>
-			<p></p>
+			<p>My interpretation of this assignment was to create the back-end modules (and a little bit of the front-end) to support the GUI and design that we began in part3. We need to fully implement a customer, order, database module for this application. The user should be able to register, authetnicate, and recover their password. In the order module they should be able to oberse the details of their order and delete to make changes to their list. This should all be handled/stored in the back-end database. This will include replace the hard-coded portion and making sure it interacts with the database fully. In addition, the site should use these modules to add on and bring useful and fast functionality to the user using the site.</p>
 
 			<hr/>
 			<h3>Analysis, Design, and Implementation</h3>
-			<p></p>
+			<p>My Analysis and design of this first started off by creating the Database tables for the backend operation, because the customer and order modules require it to proceed. Here is a design of the database tables.</p>
+
+			<img src = "shared/part4Database.png">
+			<p>Here we can that there is a main user table that in linked to privatesecurity which contains security information. Then there are 6 Data Tables which are CPU, HardDrive, Monitor, O (For OS - Linq took out the S), RAM, and SoundCard. Each table has a ID, Name and Cost for the part. These IDs are linked and are foreign keys in PreMade table for Premade PCs, and Order which Contain orders. In the Orders Table you should notice that the Order_ID and InternalComp_ID are Primary keys. This is because there can be multiple Computers per Order so that is why they are there to differentiate two computers with the same part. For example of the user just wants to delete one of the, it make SQL difficult to use. In addition you may notice that they Username is not linked to the Order, this is because when a Guest enters an Order, a Username of "" is entered. However if the tables were linked, it would complain that there isn't a key in the user table. Finally there is a seperate table called Feedback which houses all of the Feedback information collected. It has no ID becasue it is anyonmous. </p>
+
+			<p>Also note that Database.sql is the run to run to create the corresponding tables and fill with correct information.</p>
+
+			<p>After the base tables were made, I linked them using LinqContext classes to Select, Insert, and Delete from. Other cases, Microsoft handled them by using them as a DataSource. The big issue here was that because I created a system that would have be reliant on Joins, it became a bit difficult to use Microsoft's Out-Of-Box functionality which would have sped theings up. In addition, a users table was made because SQL Server version created a MDF file that is not compatiable which my current OS version (Windows 7), so it was a bit of a bummer not using the easy out of the box functionality, but it was fun.</p>
+
+			<p>After creating the cart and customer modules, I needed a way to handle the orders. One main thing I learned was that creating your own tables, you could import into the solution and modify the mdf file so it is upgraded. However you must re-create LINQTOSQL classes each time. So I proceeded to create the orders table as a way to retrieve and delete this information. I followed a similar approach to the Cart page and used a Checkbox View and display and read user input. After ironing out the details of each module, I needed to make sure all of it worked together, and produced the correct behaviour once it was ready.</p>
 
 			<hr/>
 			<h3>Guide</h3>
-			<p></p>
+			<p>The guide of this site should be straight forward, however there are tips on the site to navigate the page. All the computers are customizable by going to "View Details" or if you like all the parts on the pre-set ones, just click "Add to Cart." After they are added you will get a confirmation and then you will be able to Checkout following the Cart page. In the Cart page you are able to review and delete any product you don't want. Then if you are logged in you can review and modify your orders in the "My Orders" tab.</p>
+
+			<hr/>
+			<h3>Final Words</h3>
+			<p>Thanks for taking the time to review my work. It was a fun course and I look forward to your feedback! Thanks!</p>
 
 			<hr/>
 			<h2><a href = "part4">Source Files</a></h2>
