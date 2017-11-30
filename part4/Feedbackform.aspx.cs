@@ -18,11 +18,12 @@ public partial class Feedbackform : System.Web.UI.Page
         // Database Context
         ShopNowDataContext db = new ShopNowDataContext();
 
+        // New Feedback item/row
         Feedback feedback = new Feedback();
+
+        // Insert Correct information
         feedback.User_Feedback = Feedback_Textbox.Text;
-
         db.Feedbacks.InsertOnSubmit(feedback);
-
         db.SubmitChanges();
 
         // Redirect

@@ -11,6 +11,7 @@ public partial class RecoverPasswordSolution : System.Web.UI.Page
     {
         if (Session["RecoverAnswer"] == null)
         {
+            // Error Message
             RecoverPassword_Answer.Text = "Please go through proper steps to recover password";
         }
         else

@@ -22,19 +22,23 @@ public partial class ComputeDetails_Confirmation : System.Web.UI.Page
             Monitor monitor = db.Monitors.FirstOrDefault(row => row.ID.Equals(Session["Display_Cart"].ToString()));
             SoundCard soundCard = db.SoundCards.FirstOrDefault(row => row.ID.Equals(Session["SC_Cart"].ToString()));
 
+            // Check if first cart item
             if (Session["CartLength"] == null)
             {
+                // Create first Cart Item
                 Session["CartLength"] = "1";
                 string[] cartitems = new string[] { Session["OS_Cart"].ToString(), Session["CPU_Cart"].ToString(), Session["RAM_Cart"].ToString(), Session["HD_Cart"].ToString(), Session["Display_Cart"].ToString(), Session["SC_Cart"].ToString(), Session["Cost"].ToString() };
                 Session["CartItem1"] = cartitems;
             }
             else
             {
+                // Create next Cart item
                 Session["CartLength"] = (Convert.ToInt32((string)Session["CartLength"]) + 1).ToString();
                 string[] cartitems = new string[] { Session["OS_Cart"].ToString(), Session["CPU_Cart"].ToString(), Session["RAM_Cart"].ToString(), Session["HD_Cart"].ToString(), Session["Display_Cart"].ToString(), Session["SC_Cart"].ToString(), Session["Cost"].ToString() };
                 Session["CartItem" + Session["CartLength"].ToString()] = cartitems;
             }
 
+            // Display information that was added to cart
             Confirmation_Label.Text = "You have added a Computer with the following information to the cart:";
             OS_Cart_Label.Text = OS.Name;
             CPU_Cart_Label.Text = cPU.Name;
@@ -44,6 +48,7 @@ public partial class ComputeDetails_Confirmation : System.Web.UI.Page
             SC_Cart_Label.Text = soundCard.Name;
             Cost_Label.Text = (String)Session["Cost"];
 
+            // Null all the info added
             Session["OS_Cart"] = null;
             Session["CPU_Cart"] = null;
             Session["RAM_Cart"] = null;
@@ -54,6 +59,7 @@ public partial class ComputeDetails_Confirmation : System.Web.UI.Page
         }
         else
         {
+            // Error Message
             Confirmation_Label.Text = "Invalid navigation to 'Add Cart Confirmation'";
         }
     }

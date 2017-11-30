@@ -20,8 +20,10 @@ public partial class RecoverPassword : System.Web.UI.Page
         // Lookup Email
         privatesecurity security = db.privatesecurities.FirstOrDefault(row => (row.Email.Equals(Recover_Password_Email.Text)));
 
+        // Check if one present
         if (security == null)
         {
+            // Error message
             Invalid_Recover_Error.Text = "Non-Registered Email. Please try again.";
         }
         else

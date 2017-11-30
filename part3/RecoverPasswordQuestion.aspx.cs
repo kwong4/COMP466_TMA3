@@ -11,10 +11,12 @@ public partial class RecoverPasswordQuestion : System.Web.UI.Page
     {
         if (Session["RecoverEmail"] == null)
         {
+            // Hide Information
             Recover_Password_SecurityQuestion.Visible = false;
             Recover_Password_UserInput.Visible = false;
             Submit_SecurityQuestion.Visible = false;
 
+            // Error Message
             Recover_Password_Security.Text = "Please go through proper steps to recover password";
         }
         else

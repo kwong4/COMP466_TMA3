@@ -11,16 +11,19 @@ public partial class Cart : System.Web.UI.Page
     {
         if (Session["CartLength"] == null)
         {
+            // Error if no items
             setuperror();
         }
         else
         {
+            // Show Cart items
             setupitems(Convert.ToInt32(Session["CartLength"]));
         }
     }
 
     protected void setuperror()
     {
+        // Hide information and show Error
         Cart_Label.Text = "Your Cart is empty.";
         checkout_Button.Visible = false;
         cartBox.Visible = false;
@@ -32,8 +35,10 @@ public partial class Cart : System.Web.UI.Page
         // Database Context
         ShopNowDataContext db = new ShopNowDataContext();
 
+        // Cycle through all items
         for (int i = 1; i <= length; i++)
         {
+            // Pull string array of items
             string[] cartitems = (string[])Session["CartItem" + i];
 
             // Pull corresponding row given the selected value
@@ -44,6 +49,7 @@ public partial class Cart : System.Web.UI.Page
             Monitor monitor = db.Monitors.FirstOrDefault(row => row.ID.Equals(cartitems[4]));
             SoundCard soundCard = db.SoundCards.FirstOrDefault(row => row.ID.Equals(cartitems[5]));
 
+            // Format to show use
             cartBox.Items.Add("<br />PC #" + i + "<br />          " +
                 OS.Name + "<br />          " +
                 cPU.Name + "<br />          " +
@@ -53,6 +59,7 @@ public partial class Cart : System.Web.UI.Page
                 soundCard.Name + "<br />          " +
                 cartitems[6] + "<br />");
         }
+        // Formatting
         cartBox.Attributes.Add("Style", "font-size: x-large; font-weight: strong;");
     }
 
@@ -64,26 +71,33 @@ public partial class Cart : System.Web.UI.Page
 
     protected void Delete_Checkboxes_Click(object sender, EventArgs e)
     {
+        // Initial Index
         int cur_index = 0;
 
+        // Cycle through all of boxes
         for (int i = 0; i < cartBox.Items.Count; i++)
         {
+            // Check if selected
             if (cartBox.Items[i].Selected)
             {
+                // Check if last item
                 if (Convert.ToInt32(Session["CartLength"]) == 1)
                 {
+                    // Show empty box and clear Session Data
                     Session["CartLength"] = null;
                     setuperror();
                     cartBox.Items.Clear();
                 }
                 else
                 {
+                    // Remove Box and lower count
                     Session["CartLength"] = (Convert.ToInt32(Session["CartLength"]) - 1).ToString();
                     cartBox.Items.RemoveAt(i);
                 }
             }
             else
             {
+                // Next index and reset Seesion Data
                 cur_index++;
                 Session["CartItem" + cur_index] = (string[])Session["CartItem" + (i + 1)];
             }

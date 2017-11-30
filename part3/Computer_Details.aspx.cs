@@ -31,11 +31,13 @@ public partial class Computer_Details : System.Web.UI.Page
         total += Convert.ToDouble(DisplayDropDownList.SelectedValue);
         total += Convert.ToDouble(SoundCardDropDownList.SelectedValue);
 
+        // Result to user
         Computer_Cost_Label.Text = "$ " + total.ToString();
     }
 
     protected void SelectedIndexChanged(object sender, EventArgs e)
     {
+        // Calculate Total
         double total = 0;
         total += Convert.ToDouble(OSDropDownList.SelectedValue);
         total += Convert.ToDouble(CPUDropDownList.SelectedValue);
@@ -44,6 +46,7 @@ public partial class Computer_Details : System.Web.UI.Page
         total += Convert.ToDouble(DisplayDropDownList.SelectedValue);
         total += Convert.ToDouble(SoundCardDropDownList.SelectedValue);
 
+        // Result to user
         Computer_Cost_Label.Text = "$ " + total.ToString();
     }
 

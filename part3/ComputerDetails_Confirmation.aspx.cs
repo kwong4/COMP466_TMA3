@@ -9,6 +9,7 @@ public partial class ComputeDetails_Confirmation : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Load Session Text
         OS_Cart_Label.Text = (String)Session["OS_Cart"];
         CPU_Cart_Label.Text = (String)Session["CPU_Cart"];
         RAM_Cart_Label.Text = (String)Session["RAM_Cart"];

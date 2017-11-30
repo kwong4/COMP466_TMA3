@@ -12,12 +12,16 @@ public partial class Orders : System.Web.UI.Page
         // Database Content
         ShopNowDataContext db = new ShopNowDataContext();
 
+        // Find all orders corresponding with name
         IQueryable<Order> order_list =  db.Orders.Where(row => row.Username.Equals(Session["Username"].ToString()));
 
+        // If any exists
         if (order_list.Any())
         {
+            // Display
             Order_info.Text = "You have the following orders:";
 
+            // Cycle through each order
             foreach (Order order in order_list)
             {
 
@@ -29,6 +33,7 @@ public partial class Orders : System.Web.UI.Page
                 Monitor monitor = db.Monitors.FirstOrDefault(row => row.ID.Equals(order.Monitor_ID));
                 SoundCard soundCard = db.SoundCards.FirstOrDefault(row => row.ID.Equals(order.SoundCard_ID));
 
+                // Formatting
                 orderBox.Items.Add("<br />Order #" + order.Order_ID + "<br />          PC #" +
                     order.InternalComp_ID + "<br />-------------------------------------------------------<br />           " +
                     OS.Name + "<br />          " +
@@ -39,10 +44,13 @@ public partial class Orders : System.Web.UI.Page
                     soundCard.Name + "<br />          $ " +
                     order.Cost + "<br />");
             }
+
+            // CSS Formatting
             orderBox.Attributes.Add("Style", "font-size: x-large; font-weight: strong;");
         }
         else
         {
+            // Error message
             orderBox.Visible = false;
             Delete_Order_Checkboxes.Visible = false;
             Order_info.Text = "Your have no Orders... Yet!";
@@ -54,29 +62,37 @@ public partial class Orders : System.Web.UI.Page
         // Database Content
         ShopNowDataContext db = new ShopNowDataContext();
 
+        // Find all orders corresponding to user
         IQueryable<Order> order_list = db.Orders.Where(row => row.Username.Equals(Session["Username"].ToString()));
 
+        // Check if any orders present
         if (order_list.Any())
         {
+            // Initial Index
             int cur_index = 0;
 
+            // Cycle through each order
             foreach (Order order in order_list)
             {
+                // Check if current one is selected, if so delete
                 if (orderBox.Items[cur_index].Selected)
                 {
                     db.Orders.DeleteOnSubmit(order);
                 }
 
+                // Increment to next index
                 cur_index++;
             }
         }
         else
         {
+            // Hide information and Error message
             orderBox.Visible = false;
             Delete_Order_Checkboxes.Visible = false;
             Order_info.Text = "Your have no Orders to Delete!";
         }
 
+        // Clear boxes and finalize database changes
         orderBox.Items.Clear();
         db.SubmitChanges();
 

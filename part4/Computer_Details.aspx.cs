@@ -22,6 +22,7 @@ public partial class Computer_Details : System.Web.UI.Page
             SoundCardDropDownList.SelectedValue = Session["SC"] != null ? (String)Session["SC"] : "0";
         }
         
+        // Prase value or default to one
         int OS_value = OSDropDownList.SelectedValue == "" ? 0 : Convert.ToInt32(OSDropDownList.SelectedValue);
         int cPU_value = CPUDropDownList.SelectedValue == "" ? 0 : Convert.ToInt32(CPUDropDownList.SelectedValue);
         int rAM_value = RAMDropDownList.SelectedValue == "" ? 0 : Convert.ToInt32(RAMDropDownList.SelectedValue);
@@ -51,11 +52,13 @@ public partial class Computer_Details : System.Web.UI.Page
        
         if (Session["Total"] != null)
         {
+            // Set total if came from different page
             Computer_Cost_Label.Text = "$ " + (String)Session["Total"];
             Session["Total"] = null;
         }
         else
         {
+            // Compute if on same page
             Computer_Cost_Label.Text = "$ " + total.ToString();
         }
         
@@ -83,6 +86,7 @@ public partial class Computer_Details : System.Web.UI.Page
         total += Convert.ToDouble(monitor.Cost);
         total += Convert.ToDouble(soundCard.Cost);
 
+        // Display to user
         Computer_Cost_Label.Text = "$ " + total.ToString();
     }
 

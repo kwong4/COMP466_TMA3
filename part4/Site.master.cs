@@ -9,8 +9,10 @@ public partial class Site : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Check if user is logged in
         if (Session["Username"] != null)
         {
+            // Show information
             Register_Button.Visible = false;
             Login_Button.Visible = false;
             SignOut_Button.Visible = true;
@@ -32,6 +34,7 @@ public partial class Site : System.Web.UI.MasterPage
 
     protected void SignOut_Button_Click(object sender, EventArgs e)
     {
+        // Reset Session Data
         Session["Username"] = null;
 
         // Redirect
