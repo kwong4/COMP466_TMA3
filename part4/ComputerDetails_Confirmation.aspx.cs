@@ -22,6 +22,19 @@ public partial class ComputeDetails_Confirmation : System.Web.UI.Page
             Monitor monitor = db.Monitors.FirstOrDefault(row => row.ID.Equals(Session["Display_Cart"].ToString()));
             SoundCard soundCard = db.SoundCards.FirstOrDefault(row => row.ID.Equals(Session["SC_Cart"].ToString()));
 
+            if (Session["CartLength"] == null)
+            {
+                Session["CartLength"] = "1";
+                string[] cartitems = new string[] { Session["OS_Cart"].ToString(), Session["CPU_Cart"].ToString(), Session["RAM_Cart"].ToString(), Session["HD_Cart"].ToString(), Session["Display_Cart"].ToString(), Session["SC_Cart"].ToString(), Session["Cost"].ToString() };
+                Session["CartItem1"] = cartitems;
+            }
+            else
+            {
+                Session["CartLength"] = (Convert.ToInt32((string)Session["CartLength"]) + 1).ToString();
+                string[] cartitems = new string[] { Session["OS_Cart"].ToString(), Session["CPU_Cart"].ToString(), Session["RAM_Cart"].ToString(), Session["HD_Cart"].ToString(), Session["Display_Cart"].ToString(), Session["SC_Cart"].ToString(), Session["Cost"].ToString() };
+                Session["CartItem" + Session["CartLength"].ToString()] = cartitems;
+            }
+
             Confirmation_Label.Text = "You have added a Computer with the following information to the cart:";
             OS_Cart_Label.Text = OS.Name;
             CPU_Cart_Label.Text = cPU.Name;
